@@ -30,13 +30,13 @@ pub fn to_input_request(evt: CrosstermEvent) -> Option<InputRequest> {
                 (Char('w'), KeyModifiers::CONTROL) => Some(DeletePrevWord),
                 (Delete, KeyModifiers::CONTROL) => Some(DeleteNextWord),
                 (Char('a'), KeyModifiers::CONTROL) => Some(GoToStart),
-                (Home, KeyModifers::NONE) => Some(GoToStart),
+                (Home, KeyModifiers::NONE) => Some(GoToStart),
                 (Char('e'), KeyModifiers::CONTROL) => Some(GoToEnd),
-                (End, KeyModifers::NONE) => Some(GoToEnd),
+                (End, KeyModifiers::NONE) => Some(GoToEnd),
                 (Enter, KeyModifiers::NONE) => Some(Submit),
                 (Esc, KeyModifiers::NONE) => Some(Escape),
-                (Up, KeyModifers::NONE) => Some(Up),
-                (Down, KeyModifers::NONE) => Some(Down),
+                (KeyCode::Up, KeyModifiers::NONE) => Some(InputRequest::Up),
+                (KeyCode::Down, KeyModifiers::NONE) => Some(InputRequest::Down),
                 (_, _) => None,
             }
         }
