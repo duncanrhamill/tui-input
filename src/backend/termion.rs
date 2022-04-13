@@ -27,6 +27,7 @@ pub fn to_input_request(evt: &Event) -> Option<InputRequest> {
         Event::Key(Key::Char(c)) => Some(InsertChar(c)),
         Event::Key(Key::Up) => Some(Up),
         Event::Key(Key::Down) => Some(Down),
+        Event::Key(Key::Ctrl('c')) => Some(Abort),
         _ => None,
     }
 }

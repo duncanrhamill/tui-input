@@ -21,6 +21,7 @@ pub enum InputRequest {
     Escape,
     Up,
     Down,
+    Abort,
 }
 
 #[derive(Debug, PartialOrd, PartialEq, Eq, Clone, Copy, Hash)]
@@ -48,6 +49,9 @@ pub enum InputResponse {
 
     /// Down was pressed
     Down,
+
+    /// CTRL-C was pressed
+    Abort,
 }
 
 /// The input buffer with cursor support.
@@ -303,6 +307,8 @@ impl Input {
             Up => Some(InputResponse::Up),
 
             Down => Some(InputResponse::Down),
+
+            Abort => Some(InputResponse::Abort),
         }
     }
 

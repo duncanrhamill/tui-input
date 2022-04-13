@@ -37,6 +37,7 @@ pub fn to_input_request(evt: CrosstermEvent) -> Option<InputRequest> {
                 (Esc, KeyModifiers::NONE) => Some(Escape),
                 (KeyCode::Up, KeyModifiers::NONE) => Some(InputRequest::Up),
                 (KeyCode::Down, KeyModifiers::NONE) => Some(InputRequest::Down),
+                (Char('c'), KeyModifiers::CONTROL) => Some(Abort),
                 (_, _) => None,
             }
         }
