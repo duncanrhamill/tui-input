@@ -19,6 +19,8 @@ pub enum InputRequest {
     DeleteLine,
     Submit,
     Escape,
+    Up,
+    Down,
 }
 
 #[derive(Debug, PartialOrd, PartialEq, Eq, Clone, Copy, Hash)]
@@ -40,6 +42,12 @@ pub enum InputResponse {
 
     /// Esc was pressed.
     Escaped,
+
+    /// Up was pressed
+    Up,
+
+    /// Down was pressed
+    Down,
 }
 
 /// The input buffer with cursor support.
@@ -291,6 +299,10 @@ impl Input {
             Submit => Some(InputResponse::Submitted),
 
             Escape => Some(InputResponse::Escaped),
+
+            Up => Some(InputResponse::Up),
+
+            Down => Some(InputResponse::Down),
         }
     }
 

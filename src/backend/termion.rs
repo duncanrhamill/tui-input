@@ -19,10 +19,14 @@ pub fn to_input_request(evt: &Event) -> Option<InputRequest> {
         Event::Key(Key::Ctrl('w')) => Some(DeletePrevWord),
         // Event::Key(Key::Ctrl(Key::Delete)) => Some(DeleteNextWord),
         Event::Key(Key::Ctrl('a')) => Some(GoToStart),
+        Event::Key(Key::Home) => Some(GoToStart),
         Event::Key(Key::Ctrl('e')) => Some(GoToEnd),
+        Event::Key(Key::End) => Some(GoToEnd),
         Event::Key(Key::Char('\n')) => Some(Submit),
         Event::Key(Key::Esc) => Some(Escape),
         Event::Key(Key::Char(c)) => Some(InsertChar(c)),
+        Event::Key(Key::Up) => Some(Up),
+        Event::Key(Key::Down) => Some(Down),
         _ => None,
     }
 }
